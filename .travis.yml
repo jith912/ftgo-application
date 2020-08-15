@@ -1,6 +1,6 @@
 sudo: required
-#services:
-#  - docker
+services:
+ - docker
 env:
   global:
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1 #to prevent google cloud from displaying any user input prompt (like press y or n)
