@@ -1,6 +1,9 @@
 sudo: required
-services:
- - docker
+# services:
+#  - docker
+branches:
+    only:
+      - master
 env:
   global:
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1 #to prevent google cloud from displaying any user input prompt (like press y or n)
@@ -14,9 +17,6 @@ before_install:
   - gcloud config set compute/zone us-central1-c
   - gcloud container clusters get-credentials ftgo-cluster
 #  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-
-deploy:
-    provider: script
-    script: bash ./deployment/kubernetes/scripts/kubernetes-deploy-all.sh
-    on:
-      branch: master
+script: echo "This should be running tests for continuous integration"
+after_success:
+  - ./deployment/kubernetes/scripts/kubernetes-deploy-all.sh
