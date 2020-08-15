@@ -1,6 +1,6 @@
 sudo: required
-services:
-  - docker
+#services:
+#  - docker
 env:
   global:
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1 #to prevent google cloud from displaying any user input prompt (like press y or n)
@@ -13,7 +13,7 @@ before_install:
   - gcloud config set project ftgo-286210
   - gcloud config set compute/zone us-central1-c
   - gcloud container clusters get-credentials ftgo-cluster
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+#  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
 deploy:
     provider: script
