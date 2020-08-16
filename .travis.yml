@@ -20,3 +20,4 @@ before_install:
 script: echo "This should be running tests for continuous integration"
 after_success:
   - ./deployment/kubernetes/scripts/kubernetes-deploy-all.sh
+  - ./deployment/kubernetes/scripts/port-forwards.sh
