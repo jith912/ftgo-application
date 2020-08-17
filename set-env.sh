@@ -1,5 +1,8 @@
+#! /bin/bash -e
 if [ -z "$DOCKER_HOST_IP" ] ; then
+    echo DOCKER_HOST_IP is not set
     if [ ! -z "$DOCKER_HOST" ] ; then
+      echo DOCKER_HOST is set
       echo using ${DOCKER_HOST?}
       XX=${DOCKER_HOST%\:*}
       export DOCKER_HOST_IP=${XX#tcp\:\/\/}
